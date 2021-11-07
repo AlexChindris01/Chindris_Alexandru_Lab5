@@ -31,6 +31,9 @@ namespace Chindris_Alexandru_Lab5
             System.Windows.Data.CollectionViewSource carViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("carViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // carViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource customerViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("customerViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // customerViewSource.Source = [generic data source]
         }
     }
 }
