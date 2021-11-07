@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chindris_Alexandru_Lab5", "Chindris_Alexandru_Lab5.csproj", "{D850E15B-E7C2-4629-9AD6-D749AA2BE600}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGeistModel", "AutoGeistModel\AutoGeistModel.csproj", "{DD82B820-F7D2-48E3-9B6F-4DBB7CC0020E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D850E15B-E7C2-4629-9AD6-D749AA2BE600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D850E15B-E7C2-4629-9AD6-D749AA2BE600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D850E15B-E7C2-4629-9AD6-D749AA2BE600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD82B820-F7D2-48E3-9B6F-4DBB7CC0020E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD82B820-F7D2-48E3-9B6F-4DBB7CC0020E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD82B820-F7D2-48E3-9B6F-4DBB7CC0020E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD82B820-F7D2-48E3-9B6F-4DBB7CC0020E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
