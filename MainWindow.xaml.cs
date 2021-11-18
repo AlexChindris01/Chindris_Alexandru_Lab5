@@ -89,6 +89,7 @@ namespace Chindris_Alexandru_Lab5
                     makeTextBox.Text = "";
                     modelTextBox.Text = "";
                     Keyboard.Focus(bodyStyleTextBox);
+                    SetValidationBinding();
                     break;
                 case "Customers":
                     BindingOperations.ClearBinding(firstNameTextBox, TextBox.TextProperty);
@@ -96,6 +97,7 @@ namespace Chindris_Alexandru_Lab5
                     firstNameTextBox.Text = "";
                     lastNameTextBox.Text = "";
                     Keyboard.Focus(firstNameTextBox);
+                    SetValidationBinding();
                     break;
                 case "Orders":
                     break;
@@ -104,6 +106,7 @@ namespace Chindris_Alexandru_Lab5
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             action = ActionState.Edit;
+            SetValidationBinding();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -394,6 +397,48 @@ namespace Chindris_Alexandru_Lab5
                              };
             carOrdersViewSource.Source = queryOrder.ToList();
         }
+        private void SetValidationBinding()
+        {
+            Binding firstNameValidationBinding = new Binding();
+            firstNameValidationBinding.Source = customerViewSource;
+            firstNameValidationBinding.Path = new PropertyPath("FirstName");
+            firstNameValidationBinding.NotifyOnValidationError = true;
+            firstNameValidationBinding.Mode = BindingMode.TwoWay;
+            firstNameValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            //string required
+            firstNameValidationBinding.ValidationRules.Add(new StringNotEmpty());
+            firstNameTextBox.SetBinding(TextBox.TextProperty, firstNameValidationBinding);
+            Binding lastNameValidationBinding = new Binding();
+            lastNameValidationBinding.Source = customerViewSource;
+            lastNameValidationBinding.Path = new PropertyPath("LastName");
+            lastNameValidationBinding.NotifyOnValidationError = true;
+            lastNameValidationBinding.Mode = BindingMode.TwoWay;
+            lastNameValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            //string min length validator
+            lastNameValidationBinding.ValidationRules.Add(new StringMinLength());
+            lastNameTextBox.SetBinding(TextBox.TextProperty, lastNameValidationBinding); //setare binding nou
+            Binding bodyStyleValidationBinding = new Binding();
+            bodyStyleValidationBinding.Source = carViewSource;
+            bodyStyleValidationBinding.Path = new PropertyPath("BodyStyle");
+            bodyStyleValidationBinding.NotifyOnValidationError = true;
+            bodyStyleValidationBinding.Mode = BindingMode.TwoWay;
+            bodyStyleValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            bodyStyleValidationBinding.ValidationRules.Add(new StringNoDigits());
+            bodyStyleTextBox.SetBinding(TextBox.TextProperty, bodyStyleValidationBinding);
+            Binding makeValidationBinding = new Binding();
+            makeValidationBinding.Source = carViewSource;
+            makeValidationBinding.Path = new PropertyPath("Make");
+            makeValidationBinding.NotifyOnValidationError = true;
+            makeValidationBinding.Mode = BindingMode.TwoWay;
+            makeValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            makeValidationBinding.ValidationRules.Add(new StringMaxLength());
+            makeTextBox.SetBinding(TextBox.TextProperty, makeValidationBinding);
+        }
+
     }
 
 }
